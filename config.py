@@ -1,5 +1,5 @@
 # данные о сервере
 host = "localhost"
-user = "root"
-password = "Mr13082002!"
+user = "root" #Your username db
+password = "root" #Password db
 db_name = "prekol1"
