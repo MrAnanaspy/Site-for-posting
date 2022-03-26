@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Posts</title>
+</head>
+<body>
+
+{% for el in article %}
+{% for name in creater %}
+    <h1>{{ el.heading }}</h1> <h3> {{ el.hashteg }} <br> Создатель: {{ name.name }} <br>{{ el.date }}</h3>
+            <h2>
+            {{ el.text }}
+            </h2>
+        <form action="/posts/{{el.id}}", method="post">
+            <a href="/posts/{{el.id}}/ban">Отправить пост на рассмотрение</a><br>
+         </form>
+{% endfor %}
+<h2>{{ kol_like }}😍</h2>
+<form action="/posts/{{el.id}}", method="post">
+    {% if likez == true %}
+
+    <input type="submit" name="post_det" id="dislike" value="dislike">
+
+    {% else %}
+
+    <input type="submit" name="post_det" id="like" value="like">
+
+    {% endif %}
+</form>
+
+
+
+<h2>Коментарии</h2>
+<form action="/posts/{{el.id}}", method="post">
+        <textarea type="text" name="post_det" id="text_com" placeholder="Text"></textarea><br>
+        <input type="submit" name="post_det" id="kom" value="Готово"><br>
+</form>
+        {% for com in comments%}
+<font color="red">{{com.name_users}}</font>:{{com.text}}<br>
+        {% endfor %}
+
+{% endfor %}
+</body>
+</html>

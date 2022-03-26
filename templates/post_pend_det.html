@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for el in id %}
+{% for ell in ee %}
+ <h1>{{ el.heading }}</h1> <h3> {{ el.hashteg }} <br> Создатель:{{ ell.name }} <br>{{ el.date }}</h3>
+            <h2>
+            {{ el.text }}
+            </h2>
+{% endfor %}
+{% endfor %}
+</body>
+</html>

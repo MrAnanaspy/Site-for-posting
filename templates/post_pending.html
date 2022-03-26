@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Посты на раассмотрении:</h1>
+<form action="/post_pending", method="post">
+    <input type="string(70)" name="datetime" placeholder="YYYY-MM-DD HH:MM:SS">
+    <input type="submit" name="poisk" value="Поиск">
+</form>
+{% for el in pp %}
+<form action="/post_pending", method="post">
+    <h3>
+{{el.id_post}}. {{el.ban_reason}} <br>
+
+    Data: {{el.date_ban}}<br>
+        <a href="/post_pending/{{el.id_post}}">Детальнее</a>
+    </h3>
+<input type="submit" name="{{el.id_post}}" value="Вернуть">
+<input type="submit" name="{{el.id_post}}" value="Удалить">
+</form>
+{% endfor %}
+</body>
+</html>

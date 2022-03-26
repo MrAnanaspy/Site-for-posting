@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/posts/{{id}}/ban" method="post">
+    <h2>Причина бана:</h2><textarea type="text" name="text_ban" id="text_ban" placeholder="Причина"></textarea><br>
+    Вы уверенны?<br>
+    <input type="submit" name="ban" value="Да">
+</form>
+<form action="/posts/{{id}}">
+    <input type="submit" name="not_ban" value="Нет"><br>
+</form>
+
+
+</body>
+</html>

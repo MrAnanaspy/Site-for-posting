@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Инфорация о пользователях</title>
+</head>
+<body>
+<form action="/users", method="post">
+    <input type="string(70)" name="username" placeholder="Ник">
+    <input type="string(70)" name="email" placeholder="Почта">
+    <input type="submit" name="poisk" value="Поиск">
+</form>
+    {% for el in articles %}
+        <form action="/users", method="post">
+        <h2>{{ el.id }}. Имя: {{ el.name }}, Email: {{ el.email }}, Дата регистрации: {{ el.date }}
+
+            <input type="submit" name="{{el.id}}" value="Заблокировать">
+
+        </h2>
+         </form>
+    {% endfor %}
+</body>
+</html>
